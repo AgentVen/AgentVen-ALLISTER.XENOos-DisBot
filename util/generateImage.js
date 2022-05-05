@@ -53,8 +53,11 @@ const generateImage = async (member) => {
     ctx.textAlign = "left"
 
     // Draw in the Username
-    ctx.font = '27px Oxanium Medium'
-    ctx.fillText(username + discrim, dim.width + 291.02, dim.height + 145.13)
+    ctx.font = "36px Oxanium Medium"
+    ctx.fillText(username + '#' + discrim, 300, 172)
+
+    // Draw in the Username's Underline
+    /*Beacuse there seems to be no posibible way to include an underline as part of the text*/
 
     const attachment = new discordJS.MessageAttachment(canvas.toBuffer(), "IIOC-CS_welcome.png")
     return attachment

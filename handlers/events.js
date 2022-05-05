@@ -3,11 +3,10 @@ const { getfiles } = require('../util/functions')
 
 module.exports = (bot, reload) => {
     const {client} = bot
-
     let events = getfiles('./events/', '.js')
 
     if (events.length === 0){
-        console.log("Unable to load Events: 0 files ending in <.js> found in the <events> folder.")
+        console.log("Unable to load Events: 0 Events files found.")
     }
 
     events.forEach((f, i) => {
@@ -32,7 +31,7 @@ function triggerEventHandler(bot, event, ...args){
         if (client.events.has(event))
             client.events.get(event).run(bot, ...args)
         else
-            throw new Error(`Attempted to get an Event called: <${event}, but it has ceased to from exist.>`)
+            throw new Error(`Attempted to get Event: <${event}, but it has ceased to from exist.`)
     }
     catch(err){
         console.error(err)
